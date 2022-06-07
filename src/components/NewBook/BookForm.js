@@ -13,8 +13,10 @@ export default function NewBook(props) {
     const author = authorInputRef.current.value;
 
     if (title.trim().length > 0 && author.trim().length > 0) {
-      localStorage.setItem('title', title);
-      localStorage.setItem('author', author);
+      localStorage.setItem(
+        Math.random().toString(),
+        JSON.stringify({ title, author })
+      );
     }
 
     titleInputRef.current.value = '';
