@@ -1,0 +1,19 @@
+@use '../../abstracts/variables' as *;
+
+.book {
+     padding: 1rem;
+
+     border-bottom: 1px solid $border-dark;
+
+     font-weight: bold;
+     font-size: 1.25rem;
+
+     h3 {
+          margin: 0;
+          margin-bottom: 1rem;
+     }
+
+     &:last-of-type {
+          border-bottom: none;
+     }
+}

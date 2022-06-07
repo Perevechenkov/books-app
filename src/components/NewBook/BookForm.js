@@ -9,14 +9,12 @@ export default function NewBook(props) {
   const submitHandler = event => {
     event.preventDefault();
 
+    const id = Math.random().toString();
     const title = titleInputRef.current.value;
     const author = authorInputRef.current.value;
 
     if (title.trim().length > 0 && author.trim().length > 0) {
-      localStorage.setItem(
-        Math.random().toString(),
-        JSON.stringify({ title, author })
-      );
+      localStorage.setItem(id, JSON.stringify({ id, title, author }));
     }
 
     titleInputRef.current.value = '';
