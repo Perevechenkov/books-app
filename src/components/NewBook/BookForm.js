@@ -17,6 +17,8 @@ export default function NewBook(props) {
       localStorage.setItem(id, JSON.stringify({ id, title, author }));
     }
 
+    props.onAddBook({ id, title, author });
+
     titleInputRef.current.value = '';
     authorInputRef.current.value = '';
   };

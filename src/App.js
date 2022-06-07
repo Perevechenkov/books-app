@@ -22,9 +22,13 @@ function App() {
     setBooks(getBooksFromStorage());
   }, [getBooksFromStorage]);
 
+  const addBookHandler = book => {
+    setBooks(prevBooks => prevBooks.concat(book));
+  };
+
   return (
     <>
-      <BookForm />
+      <BookForm onAddBook={addBookHandler} />
       <Books books={books} />
     </>
   );
