@@ -1,5 +1,11 @@
+import BookForm from './components/NewBook/BookForm';
+
 function App() {
-  return <div></div>;
+  return (
+    <>
+      <BookForm />
+    </>
+  );
 }
 
 export default App;
