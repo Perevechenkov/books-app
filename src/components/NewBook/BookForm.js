@@ -35,7 +35,12 @@ export default function NewBook(props) {
           <label htmlFor='author'>Автор</label>
           <input type='text' id='author' ref={authorInputRef} />
         </div>
-        <button type='submit'>Применить</button>
+        <div className={styles['form-control__actions']}>
+          <button type='submit'>Применить</button>
+          <button type='button' onClick={props.onToggle}>
+            Отмена
+          </button>
+        </div>
       </form>
     </section>
   );

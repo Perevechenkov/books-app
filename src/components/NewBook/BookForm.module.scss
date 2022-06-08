@@ -40,5 +40,10 @@
                outline: none;
                border-color: $border-dark;
           }
+
+          &__actions {
+               display: flex;
+               justify-content: space-between;
+          }
      }
 }
