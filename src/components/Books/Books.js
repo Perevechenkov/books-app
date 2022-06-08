@@ -16,6 +16,8 @@ export default function Books(props) {
             key={book.id}
             bookItem={book}
             onDelete={props.onDeleteBook.bind(null, book.id)}
+            onEditBook={props.onEditBook.bind(null, book.id)}
+            onRenderForm={renderForm}
           />
         ))}
       </ul>

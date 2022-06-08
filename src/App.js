@@ -36,12 +36,35 @@ function App() {
     setBooks(prevBooks => prevBooks.filter(book => book.id !== bookId));
   };
 
+  const editBookHandler = (bookId, newBookData) => {
+    localStorage.setItem(
+      bookId,
+      JSON.stringify({
+        title: newBookData.title,
+        author: newBookData.author,
+        cover: newBookData.cover,
+      })
+    );
+    setBooks(prevBooks => {
+      const newArr = [...prevBooks];
+      const editedBook = newArr.find(book => book.id === bookId);
+      newArr.splice(prevBooks.indexOf(editedBook), 1, {
+        id: bookId,
+        title: newBookData.title,
+        author: newBookData.author,
+      });
+
+      return newArr;
+    });
+  };
+
   return (
     <>
       <Books
         books={books}
         onAddBook={addBookHandler}
         onDeleteBook={deleteBookHandler}
+        onEditBook={editBookHandler}
       />
     </>
   );
