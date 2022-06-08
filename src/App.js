@@ -12,7 +12,9 @@ function App() {
       i = keys.length;
 
     while (i--) {
-      values.push(JSON.parse(localStorage.getItem(keys[i])));
+      const valueToAdd = JSON.parse(localStorage.getItem(keys[i]));
+      valueToAdd.id = keys[i];
+      values.push(valueToAdd);
     }
 
     return values;
@@ -24,12 +26,21 @@ function App() {
 
   const addBookHandler = book => {
     setBooks(prevBooks => prevBooks.concat(book));
+
+    const { title, author } = book;
+
+    localStorage.setItem(book.id, JSON.stringify({ title, author }));
+  };
+
+  const deleteBookHandler = bookId => {
+    localStorage.removeItem(bookId);
+    setBooks(prevBooks => prevBooks.filter(book => book.id !== bookId));
   };
 
   return (
     <>
       <BookForm onAddBook={addBookHandler} />
-      <Books books={books} />
+      <Books books={books} onDeleteBook={deleteBookHandler} />
     </>
   );
 }

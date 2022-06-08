@@ -9,7 +9,11 @@ export default function Tasks(props) {
     content = (
       <ul>
         {props.books.map(book => (
-          <BookItem key={book.id} bookItem={book} />
+          <BookItem
+            key={book.id}
+            bookItem={book}
+            onDelete={props.onDeleteBook.bind(null, book.id)}
+          />
         ))}
       </ul>
     );

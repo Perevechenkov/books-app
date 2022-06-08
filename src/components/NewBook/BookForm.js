@@ -13,8 +13,8 @@ export default function NewBook(props) {
     const title = titleInputRef.current.value;
     const author = authorInputRef.current.value;
 
-    if (title.trim().length > 0 && author.trim().length > 0) {
-      localStorage.setItem(id, JSON.stringify({ id, title, author }));
+    if (title.trim().length === 0 && author.trim().length === 0) {
+      return;
     }
 
     props.onAddBook({ id, title, author });
