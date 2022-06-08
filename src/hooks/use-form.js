@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import BookForm from '../components/NewBook/BookForm';
 
-export default function useForm(onSubmit) {
+export default function useForm(
+  onSubmit,
+  defaultValues = { title: '', author: '', cover: '' }
+) {
   const [formIsVisible, setFormIsVisible] = useState(false);
 
   const toggleForm = () => {
@@ -12,7 +15,11 @@ export default function useForm(onSubmit) {
     return (
       <>
         {formIsVisible && (
-          <BookForm onAddBook={onSubmit} onToggle={toggleForm} />
+          <BookForm
+            onAddBook={onSubmit}
+            onToggle={toggleForm}
+            defaultValues={defaultValues}
+          />
         )}
       </>
     );
