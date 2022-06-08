@@ -1,0 +1,33 @@
+@use '../../abstracts/variables' as *;
+
+.backdrop {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 10;
+
+     width: 100%;
+     height: 100vh;
+
+     background-color: $border-dark;
+}
+
+.modal {
+     position: fixed;
+     top: 30vh;
+     left: 10%;
+     z-index: 100;
+
+     width: 80%;
+
+     border-radius: 10px;
+     box-shadow: 0 2px 8px $border-dark-opace;
+     background-color: $bg-primary-light;
+
+     overflow: hidden;
+
+     @media (min-width: 768px) {
+          width: 40rem;
+          left: calc(50% - 20rem);
+     }
+}
