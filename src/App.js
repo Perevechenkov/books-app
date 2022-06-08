@@ -26,9 +26,9 @@ function App() {
   const addBookHandler = book => {
     setBooks(prevBooks => prevBooks.concat(book));
 
-    const { title, author } = book;
+    const { title, author, cover } = book;
 
-    localStorage.setItem(book.id, JSON.stringify({ title, author }));
+    localStorage.setItem(book.id, JSON.stringify({ title, author, cover }));
   };
 
   const deleteBookHandler = bookId => {
@@ -52,6 +52,7 @@ function App() {
         id: bookId,
         title: newBookData.title,
         author: newBookData.author,
+        cover: newBookData.cover,
       });
 
       return newArr;

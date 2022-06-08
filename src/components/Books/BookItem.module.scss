@@ -3,6 +3,17 @@
 .book {
      box-shadow: 0 6px 15px 0 $border-dark-opace;
 
+     .cover {
+          position: relative;
+
+          width: 145px;
+          height: 205px;
+
+          img {
+               width: 100%;
+          }
+     }
+
      .content {
           padding: 0.5rem 0.3rem;
 

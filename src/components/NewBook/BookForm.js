@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { utf8_to_b64 } from '../../helpers/base64';
 import Modal from '../UI/Modal';
 
 import styles from './BookForm.module.scss';
@@ -16,7 +17,9 @@ export default function NewBook(props) {
     const id = Math.random().toString();
     const title = titleInputRef.current.value;
     const author = authorInputRef.current.value;
-    const cover = coverInputRef.current.value;
+    let cover = coverInputRef.current.value;
+
+    cover = utf8_to_b64(cover);
 
     if (title.trim().length === 0 && author.trim().length === 0) {
       return;
