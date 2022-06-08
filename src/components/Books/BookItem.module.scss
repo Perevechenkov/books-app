@@ -1,19 +1,28 @@
 @use '../../abstracts/variables' as *;
 
 .book {
-     padding: 1rem;
+     box-shadow: 0 6px 15px 0 $border-dark-opace;
 
-     border-bottom: 1px solid $border-dark;
+     .content {
+          padding: 0.5rem 0.3rem;
 
-     font-weight: bold;
-     font-size: 1.25rem;
+          .description {
+               display: flex;
+               flex-direction: column;
 
-     h3 {
-          margin: 0;
-          margin-bottom: 1rem;
-     }
+               h3 {
+                    margin: 0;
+                    margin-bottom: 0.5rem;
 
-     &:last-of-type {
-          border-bottom: none;
+                    font-weight: bold;
+               }
+          }
+
+          .actions {
+               button {
+                    margin-top: 0.5rem;
+                    width: 100%;
+               }
+          }
      }
 }

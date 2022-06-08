@@ -2,7 +2,7 @@ import BookItem from './BookItem';
 
 import styles from './Books.module.scss';
 
-export default function Tasks(props) {
+export default function Books(props) {
   let content = <h2>Добавьте новые книги</h2>;
 
   if (props.books.length > 0) {
