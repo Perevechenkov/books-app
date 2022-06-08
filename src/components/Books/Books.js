@@ -1,9 +1,12 @@
+import useForm from '../../hooks/use-form';
 import BookItem from './BookItem';
 
 import styles from './Books.module.scss';
 
 export default function Books(props) {
-  let content = <h2>Добавьте новые книги</h2>;
+  const { renderForm, toggleForm } = useForm(props.onAddBook);
+
+  let content = <h3>Добавьте новые книги</h3>;
 
   if (props.books.length > 0) {
     content = (
@@ -20,8 +23,14 @@ export default function Books(props) {
   }
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>{content}</div>
-    </section>
+    <>
+      {renderForm()}
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <button onClick={toggleForm}>Добавить книгу</button>
+          {content}
+        </div>
+      </section>
+    </>
   );
 }

@@ -17,6 +17,7 @@ export default function NewBook(props) {
       return;
     }
 
+    props.onToggle();
     props.onAddBook({ id, title, author });
 
     titleInputRef.current.value = '';
@@ -27,14 +28,14 @@ export default function NewBook(props) {
     <section className={styles.section}>
       <form className={styles.form} onSubmit={submitHandler}>
         <div className={styles['form-control']}>
-          <label htmlFor='author'>Автор</label>
-          <input type='text' id='author' ref={titleInputRef} />
+          <label htmlFor='title'>Название</label>
+          <input type='text' id='title' ref={titleInputRef} />
         </div>
         <div className={styles['form-control']}>
-          <label htmlFor='title'>Название</label>
-          <input type='text' id='title' ref={authorInputRef} />
+          <label htmlFor='author'>Автор</label>
+          <input type='text' id='author' ref={authorInputRef} />
         </div>
-        <button>Добавить книгу</button>
+        <button type='submit'>Применить</button>
       </form>
     </section>
   );

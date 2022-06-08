@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import BookForm from './components/NewBook/BookForm';
 import Books from './components/Books/Books';
 
 function App() {
@@ -39,8 +38,11 @@ function App() {
 
   return (
     <>
-      <BookForm onAddBook={addBookHandler} />
-      <Books books={books} onDeleteBook={deleteBookHandler} />
+      <Books
+        books={books}
+        onAddBook={addBookHandler}
+        onDeleteBook={deleteBookHandler}
+      />
     </>
   );
 }
